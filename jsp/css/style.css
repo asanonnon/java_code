@@ -1,0 +1,1552 @@
+@charset "utf-8";
+/*------------------ すべてのページに適応される設定 -------------------*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;
+    height: auto;
+}
+html {
+    background-image: url(../img/background_4.jpeg);
+    background-repeat: repeat;
+    font-size: 16px;
+    font-family: "游明朝体";
+    backdrop-filter: blur(1px);
+}
+html::after{
+    opacity: 0.5;
+}
+img {
+    box-shadow: 0 0 8px gray;
+    filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
+}
+/*== ボタン基本設定 ==*/
+.custom-btn {
+    cursor: pointer;
+    position: relative;
+    border: none;
+}
+.custom-btn:hover {
+    background: transparent;
+}
+.custom-btn:before, .custom-btn:after {
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    box-shadow:
+    -1px -1px 5px 0px #fff,
+    7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+}
+.custom-btn:after {
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.custom-btn:hover:before, .custom-btn:hover:after {
+    width:100%;
+    transition:800ms ease all;
+}
+/*== ボタンB基本設定 ==*/
+.custom-btnB {
+    cursor: pointer;
+    position: relative;
+    border: none;
+}
+.custom-btnB span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.custom-btnB:before, .custom-btnB:after {
+  position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    transition: all 0.3s ease;
+}
+.custom-btnB:before {
+  height: 0%;
+  width: 2px;
+}
+.custom-btnB:after {
+  width: 0%;
+  height: 2px;
+}
+.custom-btnB:hover{
+  background: transparent;
+  box-shadow: none;
+}
+.custom-btnB:hover:before {
+  height: 100%;
+}
+.custom-btnB:hover:after {
+  width: 100%;
+}
+.custom-btnB span:before, .custom-btnB span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+}
+.custom-btnB span:before {
+  width: 2px;
+  height: 0%;
+}
+.custom-btnB span:after {
+  width: 0%;
+  height: 2px;
+}
+.custom-btnB span:hover:before {
+  height: 100%;
+}
+.custom-btnB span:hover:after {
+  width: 100%;
+}
+
+/*== table基本設定 ==*/
+td, th {
+	padding: 4vh;
+	width: 100vw;
+	height: 5vh;
+}
+/*========= 白画面基本設定 ========*/
+/*== ヘッダー ==*/
+header {
+    position: fixed;
+    z-index: 90;
+    width: 100%;
+    height: 87px;
+}
+.header_background {
+    width: 100%;
+    height:80px;
+    box-shadow: none;
+    filter: none;
+    opacity: 0.9;
+}
+.header_logo {
+    box-shadow: none;
+    width: 400px;
+    filter: none;
+    position: absolute;
+    top: 10%;
+    left: 2%;
+}
+.hello_name {
+    position: absolute;
+    top: 65%;
+    right: 1%;
+}
+.icon img {
+    box-shadow: none;
+    filter: none;
+    width: 2.2%;
+}
+.icon img:hover {
+    filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
+}
+/*
+.searchMenu_trigger {
+    z-index: 5;
+    border: none;
+    background-color: rgba(255, 28, 28, 0.977);
+    width: 2.2%;
+    height: 40%;
+    position: absolute;
+    top: 14%;
+    right: 10%;
+}
+*/
+.search_icon {
+    cursor: pointer;
+    position: absolute;
+    top: 14%;
+    right: 7%;
+}
+.login_icon {
+    position: absolute;
+    top: 14%;
+    right: 10%;
+}
+.cart_icon {
+    position: absolute;
+    top: 14%;
+    right: 4%;
+}
+/*
+/*ログイン文字
+.login_text {
+    font-family: monospace;
+    font-size: 14px;
+    position: absolute;
+    top: 2%;
+    right: 7.5%;
+}
+*/
+/*== 検索メニュー ==*/
+.searchMenu {
+    position: fixed;
+    z-index : 2;
+    top  : 80px;
+    left : 70%;
+    color: #333;
+    background: rgba(140, 132, 19, 0.922);
+    transform: translateX(100%);
+    transition: all 0.6s;
+    width: 30%;
+    height: 100vh;
+}
+.searchMenu ul li {
+    list-style-type: none;
+    padding: 24px 10px;
+    border-bottom: 1px solid #fff;
+}
+.searchMenu .border {
+    border-bottom: none;
+}
+.search_item {
+    position: relative;
+    margin-bottom: 5%;
+    margin-right: 50%;
+    border-bottom: 4px solid rgb(44, 107, 72);
+}
+.search_item:before {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 20%;
+    height: 4px;
+    content: '';
+    background: #5e9376;
+}
+.keyWord {
+    width: 80%;
+    padding: 1.5vh;
+    border-radius: 10px;
+    border-width: 3px;
+    margin-right: 10px;
+}
+.searchMenu  input[type="button"]{
+    position: fixed;
+    top: 24px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: FontAwesome;
+    border: none;
+    border-radius: 20%;
+    background: #443802;
+    color: #fff;
+    outline : none;
+    width: 40px;
+    height: 40px;
+}
+.searchMenu {
+    font-family: Courier;
+}
+.search_item {
+    text-align: center;
+    color: #442a03;
+    text-align: left;
+    font-size: 1.5rem;
+}
+.category, .genre {
+    display: flex;
+    color: #333;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+    align-content: space-between;
+    margin: 0 10px 0 10px;
+}
+.category label, .genre la {
+    cursor: pointer;
+}
+.search_radio {
+    margin-top: 2vw;
+    margin-left: 7vw;
+    padding: 8px;
+    color: rgb(255, 255, 255);
+    background-color: #442a03;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* このクラスを、jQueryで付与・削除する */
+.searchMenu.active {
+    transform: translateX(0%);
+  }
+/*== ハンバーガーメニュー ==*/
+.hamburger {
+    position: absolute;
+    z-index: 3;
+    top: 16%;
+    right: 3.5%;
+    counter-increment: item;
+}
+#menu07:hover {
+    filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: absolute;
+  width: 2vw;
+  height: 30px;
+  background: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: rgb(97, 65, 0);
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 12.6px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+#menu07 span:nth-of-type(1) {
+    animation: menu07-bar01 .75s forwards;
+  }
+  @keyframes menu07-bar01 {
+    0% {
+      transform: translateY(12.5px) rotate(45deg);
+    }
+    50% {
+      transform: translateY(12.5px) rotate(0);
+    }
+    100% {
+      transform: translateY(0) rotate(0);
+    }
+  }
+  #menu07 span:nth-of-type(2) {
+    transition: all .25s .25s;
+    opacity: 1;
+  }
+  #menu07 span:nth-of-type(3) {
+    animation: menu07-bar03 .75s forwards;
+  }
+  @keyframes menu07-bar03 {
+    0% {
+      transform: translateY(-12.5px) rotate(-45deg);
+    }
+    50% {
+      transform: translateY(-12.5px) rotate(0);
+    }
+    100% {
+      transform: translateY(0) rotate(0);
+    }
+  }
+  #menu07.active span:nth-of-type(1) {
+    animation: active-menu07-bar01 .75s forwards;
+  }
+  @keyframes active-menu07-bar01 {
+    0% {
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      transform: translateY(12.5px) rotate(0);
+    }
+    100% {
+      transform: translateY(12.5px) rotate(45deg);
+    }
+  }
+  #menu07.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #menu07.active span:nth-of-type(3) {
+    animation: active-menu07-bar03 .75s forwards;
+  }
+  @keyframes active-menu07-bar03 {
+    0% {
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      transform: translateY(-12.5px) rotate(0);
+    }
+    100% {
+      transform: translateY(-12.5px) rotate(-45deg);
+    }
+  }
+nav.globalMenuSp {
+    position: fixed;
+    z-index : 2;
+    top  : 0;
+    left : 0;
+    color: #000;
+    background: rgba(255, 255, 255, 0.728);
+    text-align: center;
+    transform: translateY(-100%);
+    transition: all 0.9s;
+    width: 100%;
+}
+nav.globalMenuSp ul {
+    background: rgba(140, 132, 19, 0.691);
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    font-size: 20px;
+}
+nav.globalMenuSp ul li {
+    list-style-type: none;
+    padding:10px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+nav.globalMenuSp ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+nav.globalMenuSp ul li:hover{
+    background :#ddd;
+} 
+nav.globalMenuSp ul li a {
+    display: block;
+    color: #000;
+    padding: 1em 0;
+    text-decoration :none;
+} 
+  /* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+    transform: translateY(0%);
+}
+/*== フッターAの基本設定 ==*/
+.footerA {
+    padding-top: 0;
+    margin-top: 5vh;
+}
+/*--------------------------- トップ画面設定 ---------------------*/
+#index {
+    text-align: center;
+}
+/*== HEROスライド動き ==*/
+.splide__track{
+    position: relative;
+}
+.splide-content{
+    position: absolute;
+    top: 50%;left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 150;
+    color: #fff;
+    transition: 1s;
+     -webkit-animation: splide-content 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; 
+     animation: splide-content 6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both infinite; 
+}
+@keyframes splide-content { 
+     0% { 
+      -webkit-filter: blur(12px); 
+              filter: blur(12px);
+      opacity: 0;
+    }
+    50% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+    70% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+      }
+    
+    100% {  
+        -webkit-filter: blur(12px); 
+                filter: blur(12px);
+        opacity: 0;
+      } 
+} 
+.passive{
+    opacity:0 ;
+    transition: 1s;
+}
+/*== スライダー内フォント ==*/
+.splide-content h2{
+    font-size: 20px;
+    font-family: serif;
+}
+.splide-content p{
+    font-size: 16px;
+    font-family: serif;
+}
+/* スライダー画像 */
+.splide__slide img {
+    position: relative;
+    width: 90%;
+    height: 70vh;
+    gap:10px;
+    object-fit: cover;
+    border-radius: 10%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    filter: blur(3px);
+}
+/*== 商品表示 ==*/
+.index {
+    text-align: center;
+}
+.index_itemArea img {
+    width: 16vw;
+}
+.index_item1 {
+    background-image: url(../img/background_12.jpg);
+    border-radius: 0 50px 50px 0;
+    margin-top: 40vh;
+    width: 50%;
+    height: 20vh;
+    filter: drop-shadow(10px 10px 5px rgb(115, 115, 115));
+}
+.index_item1 .fade-sideLeft {
+    position: relative;
+    bottom: 12vw;
+    left: 8vw;
+}
+.index_item2 {
+    background-image: url(../img/background_11.jpeg);
+    border-radius: 30px 0 0 30px;
+    margin-top: 30vh;
+    margin-left: 30vw;
+    width: 70%;
+    height: 10vh;
+    filter: drop-shadow(10px 10px 5px rgb(115, 115, 115));
+}
+.index_item2 .fade-sideRight {
+    position: relative;
+    bottom: 15vw;
+    right: -5vw;
+}
+.index_item3 {
+    background-image: url(../img/background_12.jpg);
+    border-radius: 0 40px 40px 0;
+    margin-top: 30vh;
+    width: 70%;
+    height: 40vh;
+    filter: drop-shadow(10px 10px 5px rgb(115, 115, 115));
+}
+.index_item3 .fade-sideLeft {
+    position: relative;
+    bottom: 10vw;
+    left: 15vw;
+}
+.index_item4 {
+    background-image: url(../img/background_11.jpeg);
+    border-radius: 50px 0 0 50px;
+    margin-top: 15vw;
+    margin-left: 10vw;
+    width: 90%;
+    height: 20vh;
+    filter: drop-shadow(10px 10px 5px rgb(115, 115, 115));
+}
+.index_item4 .fade-sideRight {
+    position: relative;
+    bottom: 10vw;
+    right: 25vw;
+}
+.index_item5 {
+    background-image: url(../img/background_12.jpg);
+    border-radius: 0 30px 30px 0;
+    margin-top: 15vh;
+    width: 80%;
+    height: 10vh;
+    filter: drop-shadow(10px 10px 5px rgb(115, 115, 115));
+}
+.index_item5 .fade-sideLeft {
+    position: relative;
+    bottom: 20vw;
+    left: 30vw;
+}
+
+/*== フッター ==*/
+footer {
+    text-align: center;
+    padding-top: 15vw;
+}
+.sign {
+    font-size: 1.2rem;
+}
+.footer_logo {
+    width: 8%;
+    box-shadow: none;
+    position: relative;
+    left: 45%;
+}
+
+/*------------------------- アカウント登録画面設定 ------------------------*/
+#registerAccount {
+    max-width: none;
+    text-align: left;
+}
+.beforeLogin_header img {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    width: 30%;
+    box-shadow: none;
+    filter: none;
+}
+.area{
+    overflow: hidden;
+}
+.wrap{
+    height: 100vh;
+    max-width: none;
+    display: flex;
+    flex-direction: row;
+    background-image: url(../img/background.jpg);
+}
+.item{
+    display: flex;
+    justify-content: center;
+}
+#account_helloArea, #account_nameArea, .account_addressArea, .account_passArea, .account_submitArea {
+    font-size: 1.7rem;
+    font-weight: 900;
+}
+#registerAccount input {
+    background-color: #d1dc97;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    padding: 4%;
+}
+/* 文章配置 */
+.account_hello1 {
+    position: absolute;
+    top: 20vh;
+    left: 10%;
+}
+.account_hello2 {
+    position: absolute;
+    top: 30vh;
+    left: 20%;
+}
+.account_hello3 {
+    position: absolute;
+    top: 80vh;
+    left: 40%;
+}
+.account_hello4 {
+    font-size: 2.4rem;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+}
+.account_name1 {
+    position: absolute;
+    top: 20vh;
+    left: 5%;
+}
+.account_name2 {
+    position: absolute;
+    top: 25vh;
+    left: 10%;
+}
+.account_name3 {
+    width: 25%;
+    position: absolute;
+    top: 40vh;
+    left: 25%;
+}
+.account_name4 {
+    width: 25%;
+    position: absolute;
+    top: 50vh;
+    left: 30%;
+}
+.account_name5 {
+    font-size: 2rem;
+    position: absolute;
+    top: 70vh;
+    left: 70%;
+}
+.account_address1 {
+    position: absolute;
+    top: 20vh;
+    left: -15%;
+}
+.account_address2 {
+    position: absolute;
+    top: 25vh;
+    left: -5%;
+}
+.account_address3 {
+    width: 30%;
+    position: absolute;
+    top: 40vh;
+    left: 25%;
+}
+.account_address4 {
+    width: 30%;
+    position: absolute;
+    top: 50vh;
+    left: 20%;
+}
+.account_address5 {
+    font-size: 2rem;
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+}
+.account_pass1 {
+    position: absolute;
+    top: 20vh;
+    left: -10%;
+}
+.account_pass2 {
+    font-size: 1rem;
+    position: absolute;
+    top: 30vh;
+    left: 10%;
+}
+.account_pass3 {
+    width: 40%;
+    position: absolute;
+    top: 45vh;
+    left: 5%;
+}
+.account_pass4 {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 70vh;
+    left: 40%;
+}
+.account_submit1 {
+    font-size: 2rem;
+    position: absolute;
+    top: 25vh;
+    left: 5%;
+}
+.account_submit2 {
+    position: absolute;
+    top: 40vh;
+    left: 15%;
+}
+.account_submit3 {
+    width: 20%;
+    position: absolute;
+    top: 50vh;
+    left: 20%;
+}
+/*== 文字てらてら ==*/
+.blur{
+	animation-name:blurAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+@keyframes blurAnime{
+  from {
+	filter: blur(10px);
+	transform: scale(1.02);
+	opacity: 0;
+  }
+
+  to {
+	filter: blur(0);
+	transform: scale(1);
+	opacity: 1;
+  }
+}
+.blurTrigger, .blurTrigger2, .blurTrigger3 {
+    opacity: 0;
+}
+
+/*=== 9-1-2 丸が動いてスクロールを促す ====*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown2{
+    z-index: 80;
+    /*描画位置※位置は適宜調整してください*/
+	position: fixed;
+	bottom: 5vh;
+	left: 3%;
+}
+/*Scrollテキストの描写*/
+.scrolldown2 span{
+    /*描画位置*/
+	position: absolute;
+	left:30px;
+	bottom:10px;
+    /*テキストの形状*/
+	color: rgb(246, 246, 246);
+	font-size: 1.2rem;
+	letter-spacing: 0.05em;
+	/*縦書き設定*/
+	-ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom:0;
+    left:-5px;
+    /*丸の形状*/
+	width:13px;
+	height:13px;
+	border-radius: 50%;
+	background:rgb(255, 255, 255);
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+	animation:
+		circlemove 2s ease-in-out infinite,
+		cirlemovehide 2s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+      0%{bottom:90px;}
+     100%{bottom:-5px;}
+ }
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+      0%{opacity:0}
+     50%{opacity:1;}
+    80%{opacity:0.9;}
+	100%{opacity:0;}
+ }
+
+/* 線の描写 */
+.scrolldown2:after{
+	content:"";
+    /*描画位置*/
+	position: absolute;
+	bottom:0;
+	left:0;
+    /*線の形状*/
+	width:3px;
+	height: 100px;
+	background:rgb(255, 255, 255);
+}
+/* ボタン */
+.btn_registerAccount {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 5vw;  
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_registerAccount:hover {
+    color: rgb(36, 76, 6);
+}
+.btn_registerAccount:before, .btn_registerAccount:after{
+    background:rgb(36, 76, 6);
+}
+/*=========== アカウント登録画面サンプル ============*/
+.registerAccount_sample {
+    background-image: url(../img/background.jpg);
+}
+#registerAccount_sample {
+    text-align: center;
+}
+.beforeLogin_header_sample img {
+    position: absolute;
+    top: 1vh;
+    left: 1%;
+    width: 30%;
+    box-shadow: none;
+    filter: none;
+}
+#registerAccount_sample h4 {
+    font-size: 2rem;
+    padding-top: 15vh;
+}
+#registerAccount_sample form {
+   padding-top: 5vh;
+   padding-bottom: 20vh;
+}
+#registerAccount_sample input {
+    width: 20%;
+    padding: 1%;
+}
+#registerAccount_sample p {
+    margin-top: 5vh;
+}
+/*== ボタンcssは横スクのと同じ ==*/
+/*-------------------------- アカウント情報確認画面設定 -------------------*/
+#registerConfirmation {
+    padding-bottom: 5vh;
+    background-image: url(../img/background.jpg);
+    text-align: center;
+}
+#registerConfirmation h4, #userComplete h4 {
+   font-size: 1.5rem;
+   padding-top: 20vh;
+}
+.confirmation_table {
+    margin-top: 6vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right
+}
+.confirmation_table, .confirmation_table th, .confirmation_table td {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+.confirmation_table td {
+    text-align: left;
+}
+/* ボタン */
+.btn_confir {
+    margin: 10vh 1vw 3vh 1vw;
+    width: 15vw;
+    height: 5vw;
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_confir:hover {
+    color: rgb(213, 85, 43);
+}
+.btn_confir:before, .btn_confir:after{
+    background:rgb(255, 251, 32);
+}
+.btn_confir:hover:before, .btn_confir:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+/*-------------------------- ログイン画面設定 ----------------------------*/
+#login {
+    background-image: url(../img/background.jpg);
+    text-align: center;
+    padding-bottom: 50vh;
+}
+#login h4 {
+    padding-top: 15vh;
+    font-size: 1.5rem;
+}
+#login p {
+    margin-top: 3%;
+}
+#login input {
+    width: 20%;
+    padding: 1%;
+}
+/* ボタン */
+.btn_login {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 5vw;  
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_login:hover {
+    color: rgb(129, 73, 0);
+}
+.btn_login:before, .btn_login:after{
+    background:rgb(129, 73, 0);
+}
+/*------------------------- アカウント編集画面設定 ----------------------*/
+#userAccount {
+    text-align: center;
+}
+#userAccount h4 {
+    font-size: 1.5rem;
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+}
+#userAccount h3 {
+    margin-top: 5vh;
+}
+#userAccount .ya {
+    font-size: 2rem;
+}
+.editName, .editUserName, .editEmail, .editAddress, .editPass {
+    margin: 3vh 20% 2vh 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr 1.5fr;
+}
+#userAccount input {
+    width: 100%;
+    padding: 2%;
+    border: none;
+    border-radius: 15px;
+    background-color: #f1ee399c;
+}
+#userAccount hr {
+    margin-left: 15%;
+    margin-right: 15%;
+    border: none;
+    background:  radial-gradient(circle at top left, rgb(20, 102, 0) 40px, rgb(255, 243, 18) 70px, rgb(126, 148, 35) 100px);
+    height: 3px;
+}
+/* ボタン edit */
+.btn_edit {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 4vw;  
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_edit:hover {
+    color: rgb(97, 65, 191);
+}
+.btn_edit:before, .btn_edit:after{
+    background:rgb(97, 65, 191);
+}
+/* ボタン remove */
+.btn_remove {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 4vw;  
+    background: rgb(220, 59, 41);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_remove:hover {
+    color: rgb(255, 0, 0);
+}
+.btn_remove:before, .btn_remove:after{
+    background:rgb(255, 0, 0);
+}
+/*------------------------- アカウント編集完了画面設定 ----------------------*/
+#userComplete {
+    height: 100vh;
+    text-align: center;
+}
+/* ボタン */
+.btn_editconf {
+    margin: 3vw 1vw 5vw 1vw;
+    width: 18vw;
+    height: 4vw;  
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_editconf:hover {
+    color: rgb(26, 186, 152);
+}
+.btn_editconf:before, .btn_editconf:after{
+    background:rgb(26, 186, 152);
+}
+/*!!!!!!!!! main内のcssはアカウント情報確認画面のとこに記載 !!!!!!!!!!*/
+
+/*------------------------- アカウント削除確認画面設定 ----------------------*/
+#userRemove {
+    height: 80vh;
+    text-align: center;
+}
+#userRemove p {
+    font-size: 2rem;
+    padding-top: 15vw;
+    padding-bottom: 5vw;
+}
+/* ボタン B */
+.btn_removeB {
+    margin: 3vw 1vw;
+    width: 18vw;
+    height: 4vw;  
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn_removeB:hover {
+    color: rgb(26, 186, 152);
+}
+.btn_removeB:before, .btn_removeB:after{
+    background:rgb(26, 186, 152);
+}
+/*------------------------- アカウント削除完了画面設定 ----------------------*/
+#userRemoveResult {
+    height: 100vh;
+    text-align: center;
+    background-image: url(../img/background.jpg);
+}
+#userRemoveResult p {
+    font-size: 2rem;
+    padding-top: 35vh;
+}
+/*---------------------------- ランキング画面設定 -----------------------*/
+#rankingByView {
+    text-align: center;
+}
+#rankingByView h2 {
+    font-size: 2rem;
+    padding-top: 15vh;
+}
+/*== TOP3 ==*/
+.top3 {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.top_1 {
+    font-size: 1.7rem;
+}
+.top_2 {
+    font-size: 1.5rem;
+}
+.imgArea {
+    width: 80%;
+    height: 20vw;
+}
+.top3 img {
+    width: 15vw;
+}
+.detail_top3 {
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+    padding-right: 4vw;
+}
+#userRemoveResult h3 {
+    position: relative;
+    padding: 1vw 3vw;
+    margin: 0 1vw 5vw 0;
+    border: 3px solid #000000;
+    border-top: rgba(0, 0, 0, 0);
+    border-left: rgba(0, 0, 0, 0);
+    border-right: rgba(0, 0, 0, 0);
+}
+#userRemoveResult h3:before {
+    position: absolute;
+    bottom: -14px;
+    left: 1em;
+    width: 0;
+    height: 0;
+    content: '';
+    border-width: 14px 12px 0 12px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+}
+#userRemoveResult h3:after {
+    position: absolute;
+    bottom: -10px;
+    left: 1em;
+    width: 0;
+    height: 0;
+    content: '';
+    border-width: 14px 12px 0 12px;
+    border-style: solid;
+    border-color: #f9f9f9 transparent transparent transparent;
+}
+/*== TOP10 ==*/
+.top10 img {
+    width: 70%;
+}
+.top10 {
+    display: flex;
+    flex-direction: row;
+}
+.rank_title {
+    margin-top: 2vh;
+    font-size: 1.2rem;
+}
+/*--------------------------- 検索結果画面設定 ---------------------*/
+#searchResult {
+    text-align: center;
+}
+#searchResult h2 {
+    font-size: 2rem;
+    text-align: left;
+    margin-left: 4vh;
+    margin-bottom: 10vh;
+    padding-top: 15vh;
+}
+.item_search_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+#searchResult img {
+    width: 70%;
+}
+.title {
+    font-size: 1.2rem;
+    padding-top: 3vh;
+}
+#searchResult hr {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+/*--------------------------- 商品詳細画面設定 ---------------------*/
+#productDetail {
+
+}
+.item_pickup {
+    background-image: url(../img/background_11.jpeg);
+    margin: 15vh 2vw 0 1vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    border-radius: 50px;
+    box-shadow: 4px 10px 8px 8px rgba(0, 0, 0, 0.5), inset 0px -3px 6px -2px rgba(0, 0, 0, 0.3);
+}
+#productDetail h2 {
+    font-size: 2rem;
+}
+#productDetail h3 {
+    margin-top: 2vw;
+}
+.item_pickup {
+    display: grid;
+}
+.item_pickup img {
+    grid-row: 1/3;
+    grid-column: 1;
+    margin-left: 5vw;
+    margin-right: 3vw;
+}
+.item_pickup_text {
+    width: 95%;
+    grid-row: 1;
+    grid-column: 2/5;
+}
+.soldArea, .soldoutArea {
+    margin-top: 2vw;
+    grid-row: 2/3;
+    grid-column: 2/5;
+}
+.howmany {
+    float: left;
+}
+.soldArea input {
+    width: 5vw;
+    height: 1.8vw;
+}
+.soldArea .custom-btnB {
+    float: left;
+}
+.btn_gosearch {
+    position: relative;
+    left: 82vw;
+    bottom: 5vw;
+}
+.soldout {
+    text-align: center;
+    padding-top: 0.5%;
+    width: 7vw;
+    height: 2vw;
+    background-color: #cc4949;
+    color: #FFFFFF;
+}
+/* ボタン cartin */
+.btn_cartin {
+    margin-top: 2vw;
+    background: rgb(86, 114, 8);
+    color: rgb(228, 228, 228);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+
+}
+.btn_cartin:before, .btn_cartin:after {
+    background:rgb(8, 31, 114);
+}
+.btn_cartin span:hover{
+    color: rgb(8, 31, 114);
+} 
+.btn_cartin span:before, .btn_cartin span:after {
+    background: rgb(8, 31, 114);
+    transition: all 0.3s ease;
+}
+/* ボタン now */
+.btn_now {
+    margin-top: 2vw;
+    margin-left: 2vw;
+    background: rgb(86, 114, 8);
+    color: rgb(228, 228, 228);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+
+}
+.btn_now:before, .btn_now:after {
+    background:rgb(184, 22, 76);
+}
+.btn_now span:hover{
+    color: rgb(184, 22, 76);
+} 
+.btn_now span:before, .btn_now span:after {
+    background: rgb(184, 22, 76);
+    transition: all 0.3s ease;
+}
+/* ボタン gosearch */
+.btn_gosearch {
+    width: 12vw;
+    height: 3vw;  
+    background: rgb(212, 185, 12);
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 500;
+}
+.btn_gosearch:hover {
+    color: rgb(186, 106, 26);
+}
+.btn_gosearch:before, .btn_gosearch:after{
+    background:rgb(186, 106, 26);
+}
+/*--------------------------- カート画面設定 ---------------------*/
+#curt {
+    text-align: center;
+}
+#curt h3 {
+    padding-top: 130px;
+}
+.buy_table {
+    border: none;
+    width: 94vw;
+    margin: 5vh 3vw;
+}
+.book_iconArea {
+    padding: 0;
+}
+.buy_table img {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+    filter: none;
+    width: 55%;
+}
+.buy_table input {
+    width: 100%;
+}
+.buy_table tr td {
+    height: 6vw;
+}
+.buy_table .sum td {
+    height: 4vw;
+}
+.buy_table tbody th:nth-child(1) {
+    border-radius: 20px 0 0 0;
+}
+.buy_table tbody th:last-child  {
+    border-radius: 0 20px 0 0;
+}
+
+
+.cart_table tr {
+    display: grid;
+    grid-template-columns: 0.4fr 2.2fr 0.6fr 0.8fr 0.6fr 0.6fr 0.5fr;
+}
+.cart_table_quantity {
+    text-align: right;
+}
+/* １行ずつ色変更　不要なら削除 even:奇数行　odd:偶数行 */
+.cart_table tr:nth-child(even) td { 
+    background: #cfcfcf; 
+} 
+.cart_table tr:nth-child(odd) td {
+    background: #eff8fa; 
+}
+/* ヘッダーセル先頭・ボディ項目・フッター項目 */
+.cart_table tbody th, .purchase_table tfoot th, .purchase_table thead th:first-child {
+    color:rgb(0, 0, 0);
+}
+.cart_table th, .cart_table td {
+    border: none;
+    width: 100%;
+    background-color: #3d98b9da;
+}
+
+/* ボタン */
+.btn_purchase {
+    margin-top: 10vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 5vw;
+    background: rgb(74, 133, 148);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+}
+.btn_purchase:hover {
+    color: rgb(24, 94, 147);
+}
+.btn_purchase:before, .btn_purchase:after{
+    background:rgb(20, 79, 124);
+}
+.btn_purchase:hover:before, .btn_purchase:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+/*--------------------------- 購入画面設定 ---------------------*/
+#purchase {
+    text-align: center;
+}
+#purchase h3 {
+    padding-top: 130px;
+}
+/*== テーブル ==*/
+
+.purchase_table tr {
+    display: grid;
+    grid-template-columns: 0.6fr 2.4fr 0.7fr 0.5fr 0.8fr;
+}
+.purchase_table img {
+  width: 32%;
+}
+.purchase_table_quantity {
+    text-align: right;
+}
+/* １行ずつ色変更　不要なら削除 even:奇数行　odd:偶数行 */
+.purchase_table tr:nth-child(even) td { 
+    background: #cfcfcf; 
+} 
+.purchase_table tr:nth-child(odd) td {
+    background: #faeaf0; 
+}
+/* ヘッダーセル先頭・ボディ項目・フッター項目 */
+.purchase_table tbody th, .purchase_table tfoot th, .purchase_table thead th:first-child {
+    color:rgb(0, 0, 0);
+}
+.purchase_table th, .purchase_table td {
+    border: none;
+    width: 100%;
+    background-color: #e287aada;
+}
+.purchase_table tbody th:nth-child(1) {
+    border-radius: 20px 0 0 0;
+   }
+   .purchase_table tbody th:last-child  {
+    border-radius: 0 20px 0 0;
+}
+#purchase p {
+    font-size: 1.5rem;
+    margin-top: 10vh;
+}
+/* ボタン */
+.btn_buy {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 5vw;
+    background: rgb(217, 95, 121);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+}
+.btn_buy:hover {
+    color: rgb(231, 39, 74);
+}
+.btn_buy:before, .btn_buy:after{
+    background:rgb(220, 40, 40);
+}
+/*--------------------------- 購入結果画面設定 ---------------------*/
+#purchaseComplete {
+    height: 80vh;
+    text-align: center;
+}
+#purchaseComplete h2 {
+    font-size: 2rem;
+    padding-top: 30vh;
+}
+#purchaseComplete h3 {
+    font-size: 1.3rem;
+    font-weight: 200;
+}
+#purchaseComplete p {
+    font-size: 1.3rem;
+    margin-top: 5vh;
+}
+/* ランキングへボタン */
+.btn_rank {
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #30492a;
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    box-shadow: 0 1rem 1rem rgba(0,0,0,.16);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+}
+.btn_rank::before {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 300%;
+    top: 50%;
+    position: absolute;
+    background-color: rgb(241, 255, 45);
+    transform: translate(-500%,-50%) rotate(-45deg);
+    transition: transform 1s ease;
+}
+.btn_rank:hover::before {
+  transform: translate(500%, -50%) rotate(-45deg);
+}
+/*------------------------- ログアウト完了画面設定 ----------------------*/
+#logoutResult {
+    height: 100vh;
+    text-align: center;
+    background-image: url(../img/background.jpg);
+}
+#logoutResult p {
+    font-size: 2rem;
+    font-weight: 600;
+    padding-top: 30vh;
+    margin-bottom: 5vh;
+}
+#logoutResult a {
+    margin: 5vw;
+}
+
+/* ボタン */
+.btn_logout {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 20vw;
+    height: 5vw;
+    background: rgb(86, 114, 8);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 400;
+}
+.btn_logout:hover {
+    color: rgb(189, 91, 130);
+}
+.btn_logout:before, .btn_logout:after{
+    background:rgb(189, 91, 130);
+}
+/*---------------------------- モバイル対応 ------------------------------*/
+@media(max-width: 900px) {
+    
+}
+@media only screen and (max-width: 900px) {
+    .item {
+      width: auto;
+    }
+}
